@@ -6,7 +6,7 @@ public class RightClicking : MonoBehaviour {
 	private bool isRightClicked = false;
 
 	void Update(){
-		if (Input.GetMouseButton(1) && isRightClicked == false) {
+		if (Input.GetMouseButtonDown(1) && isRightClicked == false) {
 			Debug.Log ("je right click");
 			isRightClicked = true;
 

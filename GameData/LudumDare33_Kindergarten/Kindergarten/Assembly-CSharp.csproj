@@ -59,6 +59,7 @@
      <None Include="Assets\sprites\environments\placeholderText.txt" />
      <None Include="Assets\objects\placeholderText.txt" />
      <None Include="Assets\sounds\placeholderText.txt" />
+     <None Include="Assets\Resources\Editor\CM Tools\TileMasterReadme.txt" />
      <None Include="Assets\scenes\placeholderText.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

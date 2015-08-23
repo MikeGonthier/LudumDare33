@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{7188D793-3737-5A05-BF67-CAD2B789C4AC}") = "Kindergarten", "Assembly-CSharp-vs.csproj", "{CEC00A8A-654F-BE0B-D24C-65A707D158FC}"
 EndProject
+Project("{7188D793-3737-5A05-BF67-CAD2B789C4AC}") = "Kindergarten", "Assembly-CSharp-Editor-vs.csproj", "{3C1CE799-12F0-D20A-F5B0-2302282BEC20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{CEC00A8A-654F-BE0B-D24C-65A707D158FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEC00A8A-654F-BE0B-D24C-65A707D158FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEC00A8A-654F-BE0B-D24C-65A707D158FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1CE799-12F0-D20A-F5B0-2302282BEC20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1CE799-12F0-D20A-F5B0-2302282BEC20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1CE799-12F0-D20A-F5B0-2302282BEC20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1CE799-12F0-D20A-F5B0-2302282BEC20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																GlobalSection(MonoDevelopProperties) = preSolution
+																				GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

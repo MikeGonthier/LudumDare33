@@ -9,8 +9,9 @@ public class scr_character : MonoBehaviour
 	private bool lineReversed;
 	public enum spriteDirection {Up, Left, Down, Right};
 	private spriteDirection mySpriteDirection;
+	private Animator myAnimator;
 
-	public scr_waypointManager waypointManager;
+	private scr_waypointManager waypointManager;
 	public float distanceToStop;
 	private NavMeshAgent agent;
 	private Vector3 actualPosition;
@@ -43,6 +44,8 @@ public class scr_character : MonoBehaviour
 		if (myNavType == navigationType.Waypoint && distance < distanceToStop)
 		{
 			waypointManager.GetNextPoint(ref waypointID, ref lineReversed);
+			//Do what you are supposed to do there, according to your event
+
 			StartMoving();
 		}
 	}
@@ -54,13 +57,43 @@ public class scr_character : MonoBehaviour
 		float x = delta.x;
 		float y = delta.z;
 		float angle = Mathf.Atan2(y, x) * (180 / Mathf.PI);
-		if(angle > 0 && angle < 45) mySpriteDirection = spriteDirection.Right;
-		if(angle > 45 && angle < 135) mySpriteDirection = spriteDirection.Up;
-		if(angle > 135 && angle < 225) mySpriteDirection = spriteDirection.Left;
-		if(angle < 0 && angle > -45) mySpriteDirection = spriteDirection.Right;
-		if(angle < -45 && angle > -135) mySpriteDirection = spriteDirection.Down;
-		if(angle < -135 && angle > -225) mySpriteDirection = spriteDirection.Left;
+		if(angle > 0 && angle < 45) 
+		{
+			mySpriteDirection = spriteDirection.Right;
+			myAnimator.SetInteger ("direction", 4);
+		}
+		if(angle > 45 && angle < 135) 
+		{
+			mySpriteDirection = spriteDirection.Up;
+			myAnimator.SetInteger ("direction", 1);
+		}
+		if(angle > 135 && angle < 225) 
+		{
+			mySpriteDirection = spriteDirection.Left;
+			myAnimator.SetInteger ("direction", 2);
+		}
+		if(angle < 0 && angle > -45) 
+		{
+			mySpriteDirection = spriteDirection.Right;
+			myAnimator.SetInteger ("direction", 4);
+		}
+		if(angle < -45 && angle > -135) 
+		{
+			mySpriteDirection = spriteDirection.Down;
+			myAnimator.SetInteger ("direction", 3);
+		}
+		if(angle < -135 && angle > -225) 
+		{
+			mySpriteDirection = spriteDirection.Left;
+			myAnimator.SetInteger ("direction", 2);
+		}
 		previousPosition = this.transform.position;
+	}
+
+	public void Stop()
+	{
+		agent.velocity = Vector3.zero;
+		agent.updatePosition = false;
 	}
 
 	public navigationType MyNavType
@@ -75,6 +108,12 @@ public class scr_character : MonoBehaviour
 		set {mySpriteDirection = value;}
 	}
 
+	public scr_waypointManager WaypointManager
+	{
+		get {return waypointManager;}
+		set {waypointManager = value;}
+	}
+
 	public int WaypointID
 	{
 		get {return waypointID;}
@@ -86,6 +125,13 @@ public class scr_character : MonoBehaviour
 		get {return lineReversed;}
 		set {lineReversed = value;}
 	}
+
+	public Animator MyAnimator
+	{
+		get {return myAnimator;}
+		set {myAnimator = value;}
+	}
+
 	public NavMeshAgent Agent
 	{
 		get {return agent;}

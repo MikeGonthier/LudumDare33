@@ -4,10 +4,10 @@ using System.Collections;
 public class TimerClock : MonoBehaviour {
 
 
-	private int currentTime;
+	private int startTime;
 	private int timeElapsed;
 	public int timeLimit;
-		
+
 	private bool timeStopped;
 	private bool isMorning;
 	private bool isNoon;
@@ -18,7 +18,7 @@ public class TimerClock : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 	
-		currentTime = (int)Time.time;//redemarre le countdown
+		startTime = (int)Time.time;//redemarre le countdown
 	}
 	
 	// Update is called once per frame
@@ -26,7 +26,7 @@ public class TimerClock : MonoBehaviour {
 	
 		if (timeStopped == false)
 		{
-			timeElapsed = (int)Time.time - currentTime;//faire tourner le conteur
+			timeElapsed = (int)Time.time - startTime;//faire tourner le conteur
 
 			if (timeLimit < timeElapsed)//arrete le conteur si limite atteinte
 			{
@@ -40,6 +40,7 @@ public class TimerClock : MonoBehaviour {
 				if ((timeLimit *.3 < timeElapsed))
 				{
 					textAfficher = false;
+
 				}
 			}
 
@@ -58,15 +59,50 @@ public class TimerClock : MonoBehaviour {
 		{
 			timeElapsed = timeLimit;
 		}
+	
+		if (timeElapsed < timeLimit*.5)//c'est le matin
+		{
+			isMorning = true;
+		}
+
+		if (timeElapsed > timeLimit*.5)//C'est le midi
+		{
+			if (timeElapsed < timeLimit*.6)
+			{
+				isMorning = false;
+				isNoon = true;
+			}
+		}
+
+		if (timeElapsed > timeLimit*.6)//C'est l'après midi
+		{
+			isNoon = false;
+			isAfternoon = true;
+		}
+
+		if (isMorning == true)
+		{
+			Debug.Log ("It's morning");
+		}
+
+		if (isNoon == true)
+		{
+			Debug.Log ("It's noon");
+		}
+
+		if (isAfternoon == true)
+		{
+			Debug.Log ("It's afternoon");
+		}
 
 		if (textAfficher == true)
 		{
-			Debug.Log("sieste");
+			Debug.Log ("Sieste");
 		}
 
 		if (textAfficher == false)
 		{
-			Debug.Log("playtime");
+			Debug.Log ("playtime");
 		}
 
 		Debug.Log (timeElapsed);

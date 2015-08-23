@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\scr_camera.cs" />
      <Compile Include="Assets\scripts\scr_character.cs" />
      <Compile Include="Assets\scripts\scr_npc.cs" />
      <Compile Include="Assets\scripts\scr_player.cs" />
